@@ -17,5 +17,11 @@ def store_user():
     else:
         return jsonify({"error": "Name and email are required"}), 400
 
+
+@app.route('/users', methods=['GET'])
+def get_users():
+    users = list(collection.find({}, {'_id': 0}))  # Exclude _id field from the response
+    return jsonify(users)
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

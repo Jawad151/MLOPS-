@@ -4,7 +4,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     const name = formData.get('name');
     const email = formData.get('email');
 
-    fetch('http://localhost:5000/store', {
+    fetch('http://backend:5000/store', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -20,3 +20,6 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         console.error('Error:', error);
     });
 });
+
+
+        
