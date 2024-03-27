@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>MLOPS-Task5</h1>
-    <form id="userForm">
+    <form id="userForm" class="form">
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name"><br>
         <label for="email">Email:</label><br>
@@ -25,37 +25,10 @@
             </tr>
         </thead>
         <tbody id="usersBody">
-            <!-- Users will be dynamically added here -->
         </tbody>
     </table>
     <script src="script.js">
 
-fetch('http://backend:5000/users')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(users => {
-                // Clear existing table rows
-                var tableBody = document.getElementById("usersBody");
-                tableBody.innerHTML = '';
-
-                // Add new users to the table
-                users.forEach(user => {
-                    var row = tableBody.insertRow();
-                    var nameCell = row.insertCell(0);
-                    var emailCell = row.insertCell(1);
-                    nameCell.innerHTML = user.name;
-                    emailCell.innerHTML = user.email;
-                });
-            })
-            .catch(error => {
-                console.error('Failed to fetch users:', error);
-            });
-        
-        window.onload = fetchUsers;
     </script>
 </body>
 </html>
